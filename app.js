@@ -20,7 +20,7 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', routes.index);
-//app.get('/test', routes.test);
+app.get('/test', routes.test);
 
 console.log('TEST');
 app.listen(61111); //my port on uberspace is 61111
