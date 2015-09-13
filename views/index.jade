@@ -3,7 +3,13 @@ extends layout
 block content
   .wrap
     .container-fluid
-        h1 Hey Kristin!
-        .push
+      input(type="text" ng-model='text' class="form-control input-lg")
+      h1 Hey {{text}}
+      .push
+  .footer
+    .container-fluid
+      .row
+        .col-xs-8.col-sm-9
+
 
 block body_end
