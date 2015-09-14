@@ -3,9 +3,15 @@ extends layout
 block content
   .wrap
     .container-fluid
-      input(type="text" ng-model='text' class="form-control input-lg")
-      h1 Hey {{text}}
+      div(ng-controller="entryField as field")
+        input(type="text" ng-model='field.sampleText' class="form-control input-lg")
+        button(ng-click="field.onClick(field.sampleText)")
+        h1 Hey {{field.sampleText}}
       .push
+    .container-fluid
+      ul(class="list-group" ng-controller="recentList as rec")
+        li(class="list-group-item" ng-repeat="entry in rec.sampleData")
+          h2 {{entry}}
   .footer
     .container-fluid
       .row
