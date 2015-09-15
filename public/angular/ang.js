@@ -1,7 +1,7 @@
 (function () {
   var app = angular.module('website', [])
 
-  app.factory("dbAccess", function () {
+  app.factory("dbAccessService", function () {
     var dataArray = []
 
     return {
@@ -14,14 +14,14 @@
     };
   });
 
-  app.controller("entryField", function ($scope, dbAccess) {
+  app.controller("inputFieldController", function ($scope, dbAccessService) {
      this.sampleText = '';
      this.onClick = function (text) {
-       dbAccess.addEntry(text);
+       if (text.length !== 0) dbAccessService.addEntry(text);
      };
   });
 
-  app.controller('recentList', function ($scope, dbAccess) {
-    this.sampleData = dbAccess.returnData();
+  app.controller('savedlistController', function ($scope, dbAccessService) {
+    this.sampleData = dbAccessService.returnData();
   });
 })();

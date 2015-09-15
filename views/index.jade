@@ -3,14 +3,14 @@ extends layout
 block content
   .wrap
     .container-fluid
-      div(ng-controller="entryField as field")
-        input(type="text" ng-model='field.sampleText' class="form-control input-lg")
-        button(ng-click="field.onClick(field.sampleText)")
-        h1 Hey {{field.sampleText}}
+      div(ng-controller="inputFieldController as inputCtrl")
+        input(type="text" class="form-control input-lg" ng-model='inputCtrl.sampleText')
+        button(class="btn btn-default" ng-click="inputCtrl.onClick(inputCtrl.sampleText)")
+        h1 Hey {{inputCtrl.sampleText}}
       .push
     .container-fluid
-      ul(class="list-group" ng-controller="recentList as rec")
-        li(class="list-group-item" ng-repeat="entry in rec.sampleData track by $index")
+      ul(class="list-group" ng-controller="savedlistController as listCtrl")
+        li(class="list-group-item" ng-repeat="entry in listCtrl.sampleData track by $index")
           h2 {{entry}}
   .footer
     .container-fluid
