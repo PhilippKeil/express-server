@@ -1,29 +1,27 @@
 (function () {
   var app = angular.module('website', [])
 
-  app.factory("addtoDB", function () {
-    var sampleData = ['hi', 'hallo']
+  app.factory("dbAccess", function () {
+    var dataArray = []
 
     return {
-      test: function() {
-        return sampleData;
+      returnData: function() {
+        return dataArray;
       },
-      add2: function(data){
-        alert('adding ' + data);
-        sampleData.push(data);
+      addEntry: function(data){
+        dataArray.push(data);
       }
     };
   });
 
-  app.controller("entryField", function ($scope, addtoDB) {
+  app.controller("entryField", function ($scope, dbAccess) {
      this.sampleText = '';
      this.onClick = function (text) {
-       alert('test' + addtoDB.test());
-       addtoDB.add2(text);
+       dbAccess.addEntry(text);
      };
   });
 
-  app.controller('recentList', function ($scope, addtoDB) {
-    this.sampleData = addtoDB.test();
+  app.controller('recentList', function ($scope, dbAccess) {
+    this.sampleData = dbAccess.returnData();
   });
 })();

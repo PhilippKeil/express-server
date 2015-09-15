@@ -10,7 +10,7 @@ block content
       .push
     .container-fluid
       ul(class="list-group" ng-controller="recentList as rec")
-        li(class="list-group-item" ng-repeat="entry in rec.sampleData")
+        li(class="list-group-item" ng-repeat="entry in rec.sampleData track by $index")
           h2 {{entry}}
   .footer
     .container-fluid
